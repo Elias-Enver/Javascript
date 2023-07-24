@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+        .painel{
+            position: relative;
+            display: flex;
+            background-color: gray;
+            padding: 30px;
+            width: 100%;
+
+        }
+        button{
+            padding: 10px 40px;
+            font-size: large;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        button:hover{
+            background-color: red;
+        }
+        .carro{
+            background-color: red;
+            width: 100px;
+            height: 50px;
+            border: 1px solid black;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="painel" class="painel">
+        <button id="btn_esquerda">&lt;-</button>
+        <button id="btn_direita">&gt;</button>
+        <button id="btn_parar">Parar</button>
+
+    </div>
+    <div id="carro" class="carro"></div>
+
+
+    <script>
+        const carro = document.getElementById('carro')
+        const btn_esquerda = document.getElementById('btn_esquerda')
+        const btn_direita = document.getElementById('btn_direita')
+        const btn_parar = document.getElementById('btn_parar')
+
+        // vamos modificar conforme a posiçao
+
+        const init = ()=>{
+            //stilo assim adicona in line
+            carro.style.position='relative'//é o relative do css
+            carro.style.left='0px'
+            carro.style.width='100px'
+            tam_tela=window.innerWidth-parseInt(carro.style.width)
+
+            
+        }
+        let tam_tela=null
+        let anima = null
+
+        const mover=(dir)=>{
+            if(dir>0){
+                if(parseInt(carro.style.left)<=tam_tela){
+                    carro.style.left=parseInt(carro.style.left) + (10*dir)+"px"
+                    anima=setTimeout(mover,20,dir)
+                }else{
+                    
+                }
+            }else if(dir<0){
+                if(parseInt(carro.style.left)>=0){
+                    carro.style.left=parseInt(carro.style.left) + (10*dir)+"px"
+                    anima=setTimeout(mover,20,dir)
+                }
+                else{
+                    clearTimeout(anima)
+                }
+            }       
+            
+          
+        }
+        const mover2=()=>{
+            if(parseInt(carro.style.left)>=tam_tela){
+                dir=-1
+                carro.style.left=parseInt(carro.style.left) + (10*dir)+"px"
+                anima=setTimeout(mover2,20)
+            }
+           
+        
+            if((parseInt(carro.style.left)<=0)){
+                dir = 1
+                carro.style.left=parseInt(carro.style.left) + (10*dir)+"px"
+                    clearTimeout(anima)
+                    anima=setTimeout(mover2,20)
+                
+            }
+            
+        }
+
+     
+        //para pegar o tamanho da janela
+        //parseInt(carro.style.width) porque a referencia é a esquerda da div
+
+       
+
+        btn_esquerda.addEventListener('click',()=>{
+            clearTimeout(anima)
+            mover2()
+            //anima=setInterval(função,tempo, argumentos)
+            
+
+        })
+        btn_direita.addEventListener('click',()=>{
+            clearTimeout(anima)
+            mover2()
+           
+            
+        })
+        btn_parar.addEventListener('click',()=>{
+            clearTimeout(anima) // parar a animação
+            
+        })
+
+
+
+        //window.onload=init assim ou 
+        window.addEventListener('load',init())
+
+        //resize sempre que redimencinar a dela vai recalcular o tamanho da tela
+        window.addEventListener('resize',()=>{
+            tam_tela=window.innerWidth-parseInt(carro.style.width)
+
+        })
+
+        
+
+
+
+        
+    </script>
+    
+</body>
+</html>

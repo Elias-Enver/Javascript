@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p_temperatura">0</p>
+    <p id="p_nivel">0</p>
+    <p id="p_pressão">0</p>
+    <button id="btn_texto">Fetch</button>
+
+    <script>
+        const p_temperatura = document.getElementById('p_temperatura')
+        const p_nivel = document.getElementById('p_nivel')
+        const p_pressão = document.getElementById('p_pressão')
+        const btn_texto = document.getElementById('btn_texto')
+
+        //quem atribui valor é o objeto literal .
+
+        let dados={
+            _tmp:0,
+            _pres:0,
+            _nive:0,
+            set valores(val){
+                this._tmp=val.disponilibidade
+                
+                this._pres=val.quaidadade
+                this._nive=val.performance
+                p_temperatura.innerHTML=val.quaidadade
+                p_nivel.innerHTML=val.performance
+                p_pressão.innerHTML=val.disponilibidade
+
+            },
+            get valores(){
+                return[this._tmp, this._pres,this._nive]
+
+            }
+        }
+        // feth so busca os dados
+        const endpoint = "https://cfbcursos--eliasenver.repl.co/"
+        const BuscarDados=()=>{
+            fetch(endpoint)
+            .then(res=>res.json()) 
+            .then(res=>{ 
+               
+               
+                dados.valores=res
+                
+                
+                
+                
+            })
+            
+        }
+
+        // de um e um segundo busca dados da api 
+        let intervalo = setInterval(BuscarDados,1000)
+
+        //console.log(res)
+        //console.log(res.disponilibidade)
+        
+        
+     
+
+       
+        
+
+
+
+    </script>
+</body>
+</html>

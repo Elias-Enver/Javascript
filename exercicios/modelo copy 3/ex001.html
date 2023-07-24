@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body >
+    <header> Tabuada</header>
+    <section>
+        <div >
+            <label for="num">Número(entre 1 a 100):</label><input type="number" name="num" id="num" max="100" min="1">
+            <input type="button" value="Adicionar" onclick="tabuada()"><br>
+        </div>
+        <div id="res">
+            tabuada: <br>
+            <select name="tabuada" id="seltab" size="10">
+                <option value=>"Digite um numero acima"</option>
+            </select>
+        </div>
+        <input type="button" value="Finalizar" onclick="resultado()" >
+        <div id="teste"></div>
+
+
+    </section>
+    <footer>
+        <p>curso em video</p>
+    </footer>
+    <script >
+        let tabela =[]
+        function tabuada(){
+            var numero = document.getElementById('num')
+            var res=document.getElementById('res')
+            var tab = document.getElementById('seltab')
+            var teste =document.getElementById('teste')
+            num = Number(numero.value)
+            if (num ==''){
+                alert('Digite um numero')
+            } else if(num <0 || num>100) {
+                alert('Digite um Número de 1 a 100')
+            } else if(tabela.indexOf(num)!= -1){
+                alert('Número já adicionado')
+            } else{
+                tabela.push(num)
+                let item =document.createElement('option')
+                item.text =`O Valor ${num} foi adicionado`
+                tab.appendChild(item)
+                teste.innerHTML=""
+            
+                
+            }
+            numero.value ="" //apagar o numero apos adicionar
+            numero.focus() // colocar o cursor na caixa
+            }
+        function resultado(){
+            if (tabela.length == 0){
+                alert('adicione valores andes de finalizar')
+            }else{
+                teste.innerHTML =`Ao todo os Números cadastrados é ${tabela.length}<br>`
+                teste.innerHTML += `O Maior Valor Digitado Foi ${Math.max.apply(null,tabela)}<br>`
+                teste.innerHTML += `O Menor Valor Digitado Foi ${Math.min.apply(null,tabela)}<br>`
+                
+                var soma = 0
+                for ( let pos in tabela ){
+                    soma +=tabela[pos]
+                }
+                teste.innerHTML += ` A Soma dos Números é ${soma}<br>`
+                var media = soma / tabela.length
+                teste.innerHTML += ` A Média é ${media}<br>`
+                teste.innerHTML += `O ultimo valro digitado foi ${tabela[tabela.length-1]}`
+            }
+            
+           
+
+        }
+        
+            
+            
+    </script>
+</body>
+</html>

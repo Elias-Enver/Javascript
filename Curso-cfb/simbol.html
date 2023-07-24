@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+        // ele retorna um indentficador unico , ele sempre retorna um elemento do tipo do sybol. ele é só usado dentro do codigo . 
+        //é um idenficador interno . 
+        const s1 = Symbol()
+        const s2 = Symbol()
+
+        //cria um identificador no registro global . aqui na comparação ele retorna como true
+        const s3 = Symbol.for('bruno')
+        const s4 = Symbol.for('bruno')
+        console.log(s3==s4)
+        //quanto usa for consigo retornar a chave desse simbol
+        console.log(Symbol.keyFor(s3)) // retorna "bruno"
+
+
+        console.log(s1)
+        console.log(s2)
+
+        console.log(s1==s2)
+        console.log(typeof(s1))
+    </script>
+
+    
+</body>
+</html>

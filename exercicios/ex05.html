@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condiçoes em JavaScript</title>
+    
+<body>
+    <H1>Sistema de Multas</H1>
+    Velocidade deo Carro :<input type="number" name="vel" id="vel"> KM/h 
+    <input type="button" value="Verificar" onclick="ver()">
+    <div id="res">Resultado: </div>
+    
+</body>
+<script>
+    function ver(){
+        var res= document.getElementById('res')
+        var velocidade = document.getElementById('vel')
+        vel1 = Number(velocidade.value)
+        if (vel1 > 60){
+            res.innerHTML =`Sua Velocidade foi de <strong>${vel1}km/h</strong> e MULTADO!`
+        }else{
+            res.innerHTML = `Sua Velocidade foi de <strong>${vel1}Km/h</strong> e não recebeu multa !`
+        }
+    }
+</script>
+</html>

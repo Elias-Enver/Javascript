@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="teste"></div>
+    <script>
+         var teste = document.getElementById('teste')
+        // Funçoes dentro de funçoes
+        /// ... criou um array
+        const soma= (...valores)=>{
+            // para recapitular. val aqui em baixo é um paremetro da função somar 
+            const somar = val =>{
+                let res = 0
+                // nesse caso o for ficou sem chaves , acredito que é porque tem variavel esse for of
+                for(v of val)
+                    res += v
+                    return res
+            }
+            // somar(valores) signifia que o parametro val de somar vai receber o valor de valores
+            return somar(valores)
+        }
+
+            // outra forma de fazer isso . 
+            const somar2 = val2 =>{
+                let res2 = 0
+                // nesse caso o for ficou sem chaves , acredito que é porque tem variavel esse for of
+                for(v2 of val2)
+                    res2 += v2
+                    return res2
+            }
+            const soma2= (...valores2)=>{
+                return somar2(valores2)
+            }
+
+        teste.innerHTML+="<br>"
+        teste.innerHTML += (soma(5,25))
+        teste.innerHTML+="<br>"
+        teste.innerHTML += soma2(5,25)
+
+        // Função Geradora 
+        // Ela tem seu retorno adiado ate que precisemos de seu retorno. 
+        // Para geradoras tem que usar function*
+        // Na primeira vez que ela gira , ela retorna um iterador
+        // é chamado por yield 
+        // a cada chamada é passado por um yield
+
+        function* cores(){
+            yield "Vermelho"
+            yield "Verde"
+            yield "Azul"
+        }
+
+        const itc = cores()
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itc.next().value
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itc.next().value
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itc.next().value
+        // se colocar mais uma fez da indefindo 
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itc.next().value
+
+        // outro exemplo 
+
+        function* perguntas(){
+            const nome = yield 'Qual seu nome?'
+            const esporte = yield 'Qual seu esporte favorito'
+            return "Seu nome é "+nome+" seu esporte favorito é " + esporte 
+        }
+
+        const itp = perguntas()
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itp.next().value
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itp.next('bruno').value
+        teste.innerHTML+="<br>"
+        teste.innerHTML += itp.next('futebol.').value
+
+        // Exemplo de usar função geradora em um loop
+        function* contador(){
+            let i=0
+            // while true é chamado de loop infinito
+            while(true){
+                yield i++
+                
+            }
+
+        }
+        const itc2=contador()
+        teste.innerHTML+="<br>"
+        // é um loop infinito , quantas vezes chamar o comando abaixo ele vai retornar um numero
+        teste.innerHTML += itc2.next().value
+        teste.innerHTML+="<br>"
+        
+        // usando for 
+        for(let i = 0;i<10;i++){
+            teste.innerHTML += itc2.next().value
+            teste.innerHTML+="<br>"
+
+        }
+
+        // usando for of
+        // aqui se tirar um break gera um loop infinito , pode usar break aqui ou dentro da function. exemplo if (c > 10) break
+        for(c of itc2){
+            break
+        }
+        // Método Map
+        // Ele e util para iterar todos os elementos de uma coleção.
+        //
+
+        const cursos =['html','css','javascript','php','react']
+        //cursos.map(elemento,indice(posição),a coleção)
+        cursos.map((elemento,indice)=>{
+            //aqui dentro o map passa para a arrow function o elemento e o indice do elemento
+            teste.innerHTML += `Curso ${elemento} está na posição no array é ${indice}`
+            teste.innerHTML+="<br>"
+        })
+        // O medoto é proprio para isso , de percorrer para um array , porem poderia ser utilizado o for . Porem o for é mais ideal quanto tem interrupção por algum motivo
+
+        const OUTRO = ['html','css','javascript','php','react']
+        let g = OUTRO.map((el,i)=>{
+            return `oi ${el} oi <br>`
+            
+        })
+        teste.innerHTML += g
+        teste.innerHTML+="<br>"
+
+
+
+    </script>
+</body>
+</html>

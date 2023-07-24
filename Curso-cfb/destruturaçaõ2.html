@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //destruturaçao usando spred
+
+        let numeros = [10,20,30,40,50,60,70,80]
+        let[a,b,c,...d] =numeros
+        //d vai receber os numeros restantes . que não forem para a,b e c . retornando um array
+
+        // 
+        const cores =()=>{
+            return['verde','amarelo','azul','branco']
+        }
+        let[c1,c2,,c3]=cores// vai imprimir o branco no c3
+
+        let texto ="curso de javascript"
+        let[t]=texto.split(" ") // split retorna um array separando as string nesse caso onde achar espaço . t retorna curso . pois é somnte uma variavel se quiser um array com tudo usa [...t] , oou pode colocar cada um em uma variaval [t,p,c]
+
+
+
+    </script>
+    
+</body>
+</html>

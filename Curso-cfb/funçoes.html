@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="teste"></div>
+    <script>
+        
+        var teste = document.getElementById('teste')
+        // Parametros Rest
+        // servem para numeros incertos de parametros
+        function soma(...valores){
+            let tam = valores.length
+            let res = 0
+            for(let i = 0;i < tam;i++){
+                res += valores[i]
+            }
+            return res
+
+        }
+        function soma2(...valores2){
+            let res1 = 0
+            for (let a of valores2){
+                res1 += a
+                
+            }
+            return res1
+        }
+
+        function soma3(...valores3){
+            let res2 = 0
+            for (let b in valores3){
+                res2 += valores3[b]
+                
+            }
+            return res2
+        }
+
+
+        teste.innerHTML+=(soma(78,89,45)) 
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=(soma2(56,90))
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=(soma3(5,90))
+
+        // Função Anonima 
+        // ela é criada somente no momento da execução
+        // na função anonima ela não tem nome e esta associda a uma variavel .
+        let f = function(v1,v2){
+            return v1+v2
+        }
+        f(10,5)
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=(f(5,90))
+
+        // função construdor 
+        // no esquema de construção , ela é anonima
+        // Nela F é de function é maisculo
+        // nela o ultimo parametro é o corpo 
+
+        const g = new Function("v1","v2","return v1+v2")
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=g(5,9)
+
+        // Arrow Function significa de função lampida 
+        // é um tipo de função anonima 
+        // se sua o sinal =>
+        const somar =(v1,v2)=>{return v1+v2}
+        teste.innerHTML+="<br>"
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=(somar(5,9))
+
+        // se for somente um parametro nao precisa de ()
+        const nome = n  =>{return n}
+
+        // se não usar return não precisa das chaves
+        const add= n =>n+10
+        teste.innerHTML+="<br>"
+        teste.innerHTML += add(8)
+
+        function ttt(){
+            n1 = 10
+            n2 = 10
+            resrr = n1+n2
+            return resrr
+        }
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=(ttt())
+
+        function soma4(...valores4){
+            let res = 0
+            let tam = valores4.length
+            let i = 0
+            while(i < tam){
+                res +=valores4[i]
+                i++
+            }
+            return res
+        }
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=soma4(10,20,90)
+
+        function soma5(...valores5){
+            let resi = 0
+            let tami = valores5.length
+            let ii = 0
+            do{
+                resi +=valores5[ii]
+                ii ++
+            }while(ii<tami)
+            return resi
+        }  
+
+        teste.innerHTML+="<br>"
+        teste.innerHTML +=soma5(10,20,90,900)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .numero{
+            font-size: large;
+        }
+        .ok{
+            color: blue;
+
+        }
+        .erro{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="numero" class="numero"></div>
+    <script>
+        const numero = document.getElementById('numero')
+
+        let promessa = new Promise((resultado_ok,resultado_Nok)=>{
+            let resultado = true
+            let tempo = 3000
+            setTimeout(()=>{
+                if(resultado){
+                    resultado_ok('Deu tudo certo')
+                }else{
+                    resultado_Nok('Deu tudo Errado')
+                }
+             
+            },tempo)
+        })
+
+        //promessa(resolvi,reject) -- esse é a sintaxe oque significa
+        // se deu certo vai para then
+        //se deu errado vai para catch
+        // se ter certo por exemplo abaixo . ele coloca o resolvi no retorno , se ter errado ele coloca o reject no retorno
+
+       promessa.then((retorno)=>{
+            numero.innerHTML=retorno
+            numero.classList.remove('erro')
+            numero.classList.add('ok')
+
+       })
+       promessa.catch((retorno)=>{
+            numero.innerHTML=retorno
+            numero.classList.remove('ok')
+            numero.classList.add('erro')
+       })
+
+       numero.innerHTML='Processando...'
+
+   
+
+
+
+    </script>
+    
+</body>
+</html>

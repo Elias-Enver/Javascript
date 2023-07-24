@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="teste"></div>
+    <div id="ternario"></div>
+    <div id="spread"></div>
+    <div id="IF e IF-ELSE"></div>
+    
+</body>
+<script>
+    function teste(){
+        let n = 10
+        let teste =document.getElementById('teste')
+        
+        // pré incremento ele utiliza depois incrementa ++n
+        //n++ pos incremento 
+        teste.innerHTML = n++
+        teste.innerHTML += n
+    }
+
+    function ternario(){
+        // Sintaxe Teste ? Verdadeiro : Falso 
+
+        let ternario=document.getElementById('ternario')
+        let num =10
+        let resto = num%2
+        if(resto==0){
+            ternario.innerHTML='par\n'
+
+        }else{
+            ternario.innerHTML='Impar \n'
+        }
+        //usando operador ternario ?(interrogação)
+        num2 = 121
+        res2 =(!(num2%2)?'Par':'Impar')
+        ternario.innerHTML += res2
+        
+
+    }
+    function spread1(){
+        // o operador spread . tradução espalhar . Ele quebra um Array , quebra um conjunto de elementos e retorna elemento por elemento . 
+        // copiar com spread
+        //let n3 =[...n1] copia o n1 para 
+        //n3
+        //let n3 =[...n1,...n2] copia os 2 ns.
+        let spreadd=document.getElementById(spread)
+        const jogador1={nome:"Bruno",energia:100,vidas:3,magia:90}
+        const jogador2={nome:'Elias',energia:100,vidas:5,velocidade:90}
+        const jogador3= {...jogador1,...jogador2}
+      
+
+        let n1=[10,20,30]
+        let n2=[11,22,33,44,55]
+        let n3 =[n1,n2]
+
+        spread.innerHTML+=(`N1: ${n1} <br>`) 
+        spread.innerHTML+=(`N2: ${n2}<br>`)
+        spread.innerHTML+=(`N3: ${n3}<br>`)
+        //spread.innerHTML+= jogador3 //ele copia os dados do segundo e inclui os atribudos que ele nao tem de ambos
+
+        // Spread em função
+        
+    }
+    const soma =(v1,v2,v3)=>{
+        v4 = v1+v2+v3
+        return v4
+    }
+    // abaixo é necessario ver via console.log no navegador.
+    // html coleciont , só pode usar elementos do html
+    const objs1=document.getElementsByTagName('div')
+    // array, pode usar elementos script 
+    const objs2=[...document.getElementsByTagName('div')]
+    objs2.forEach(element => {
+        element.innerHTML = "curso"
+    
+        //pode trabalhar de diversas formas dentro daqui
+        
+    });
+
+    console.log(objs2)
+        
+//teste()
+//ternario()
+spread1()
+spread.innerHTML+=soma(1,2,4)
+</script>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            box-sizing: border-box;
+            font-size: large;
+        }
+        .display{
+            width: 220px;
+            background-color: #8a8;
+            text-align: right;
+            padding: 5px;
+            font-family: monospace;
+            font-size: larger;
+
+        }
+        .div_display{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 220px;
+
+        }
+        .calc{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            position: absolute;
+            left: 0px;
+            transition: all 0.2s;
+        }
+        .calc_principal{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #eee;
+            border: 3px solid #bbb;
+            width: 230px;
+            border-radius: 5px;
+
+        }
+        .calc_exibir{
+            left: -230px !important;
+            transition: all 0.2s;
+        }
+        .div_nome{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 230px;
+            border: #800 solid;
+
+        }
+        .div_display{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .tecla{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #aaa;
+            border: 3px solid #888;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 2px;
+        }
+        .div_teclas{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 220px;
+            
+        }
+        .teclaop{
+            background-color: #f44 !important;
+            border-color:#800 !important ;
+        }
+        .calc_aba{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 50px;
+            background-color: rgba(128,128,128,0.2);
+            border-radius: 0px 10px 10px 0px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calc" class="calc">
+        <div id="calc_principal" class="calc_principal">
+            <div id="div_nome" class="div_nome">
+                <p>Calculadora CFB Cursos</p>
+            </div>
+            <div id="div_display" class="div_display">
+                <p class="display">0</p>
+            </div>
+            <div id="div_teclas" class="div_teclas">
+                <button id="tcpy" class="tecla teclaop" >CPY</button>
+                <button id="tlimpar" class="tecla">CL</button>
+                <button id="tpa" class="tecla num">(</button>
+                <button id="tpf" class="tecla num">)</button>
+                
+                <button id="tecla7" class="tecla num">7</button>
+                <button id="tecla8" class="tecla num">8</button>
+                <button id="tecla9" class="tecla num">9</button>
+                <button id="t+" class="tecla teclaop op" >+</button>
+                <button id="tecla4" class="tecla num">4</button>
+                <button id="tecla5" class="tecla num">5</button>
+                <button id="tecla6" class="tecla num">6</button>
+                <button id="t-" class="tecla teclaop op">-</button>
+                <button id="tecla1" class="tecla num">1</button>
+                <button id="tecla2" class="tecla num">2</button>
+                <button id="tecla3" class="tecla num">3</button>
+                <button id="tx" class="tecla teclaop op">x</button>
+                <button id="tecla0" class="tecla num">0</button>
+                <button id="tseparador" class="tecla num">,</button>
+                <button id="tqual" class="tecla teclaop res">=</button>
+                <button id="td" class="tecla teclaop op">/</button>
+            </div>
+        </div>
+        <div id="calc_aba" class="calc_aba">
+            <img id="img_aba_calc" src="setadireita.svg" alt="">
+        </div>
+        
+        <!-- <input type="text" name="teste" id="teste" style="border:1px solid black"> -->
+    </div>
+    <script>
+        const teclasNum=[...document.querySelectorAll('.num')]
+        const teclasop=[...document.querySelectorAll('.op')]
+        const teclasres=document.querySelector('.res')
+        const display = document.querySelector('.display')
+        const ton=document.querySelector('#ton')
+        const tlimpar=document.querySelector('#tlimpar')
+        const tqual = document.getElementById('tqual')
+        const tcpy = document.getElementById('tcpy')
+        const teste = document.getElementById('teste')
+        const calc_aba=document.getElementById('calc_aba')
+        const calc=document.getElementById('calc')
+        const img_aba_calc=document.getElementById('img_aba_calc')
+
+        let sinal =false
+        let decimal = false
+
+
+
+
+        teclasNum.forEach((el)=>{
+            el.addEventListener('click',(evt)=>{
+                sinal =false
+                if(evt.target.innerHTML==','){
+                    if(!decimal){
+                        decimal=true
+                        if(display.innerHTML=="0"){
+                            display.innerHTML="0."
+                        }else{
+                            display.innerHTML+='.'
+                        }
+                    }
+                }else{
+                    if(display.innerHTML=="0"){
+                        display.innerHTML=""
+                    }
+                    display.innerHTML+=evt.target.innerHTML
+                      
+                    
+                }
+                
+            })
+        })
+        teclasop.forEach((el)=>{
+            el.addEventListener('click',(evt)=>{
+                decimal = false
+                if(!sinal){
+                    sinal=true
+                    if(display.innerHTML=="0"){
+                        display.innerHTML=""
+                    }
+                    if(evt.target.innerHTML=='x'){
+                        display.innerHTML+="*"
+                    }else{
+                        display.innerHTML+=evt.target.innerHTML
+                    }
+                }
+            })
+        })
+        tlimpar.addEventListener('click',(evt)=>{
+            sinal =false
+            decimal=false
+            display.innerHTML=0
+        })
+        tqual.addEventListener('click',(evt)=>{
+            sinal =false
+            decimal=false
+            const res = eval(display.innerHTML)
+            display.innerHTML=res
+        })
+        tcpy.addEventListener('click',(evt)=>{
+            navigator.clipboard.writeText(display.innerHTML)
+
+            //clipboard é a area de tranferencia
+            //write text copiar texto
+
+            // abaixo é se for copiar de um input
+            //para mobile é importante dar um select
+            // teste.select()
+            // teste.setSelectionRange(0,9999)//mobile
+            // //teste é um ínput
+            // navigator.clipboard.writeText(teste.value)
+
+
+        })
+
+        calc_aba.addEventListener('click',(evt)=>{
+            calc.classList.toggle('calc_exibir')
+            if(calc.classList.contains('calc_exibir')){
+                img_aba_calc.setAttribute('src','setaEsquerda.svg')
+            }else{
+                img_aba_calc.setAttribute('src','setadireita.svg')
+            }
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

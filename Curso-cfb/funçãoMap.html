@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aprendendo sobre Map</title>
+</head>
+<body>
+    <div id="c1">HTML</div>
+    <div id="c2">CSS</div>
+    <div id="c3">JAVASCRIPT</div>
+    <div id="c4">PHP</div>
+    <div id="c5">REACT</div>
+    <div id="c6">MYSQL</div>
+    <div id="teste"></div>
+
+    <script>
+        var teste = document.getElementById('teste')
+        //let el =document.getElementsByTagName('div')
+        // el =[...el] // faz isso para el ser iteravel 
+        //el.map((elemento,indice)=>{
+          //  elemento.innerHTML = 'CURSOS'
+           // console.log(elemento)
+        //})
+
+        // outra formar de usar o map 
+        const el = document.getElementsByTagName('div')
+        const val = Array.prototype.map.call(el,({innerHTML})=> innerHTML)
+        console.log(val)
+
+        // outra forma de usar map .
+
+        const converterInt = (e)=> parseInt(e)
+        let num = ["1","2","3","4","5"].map(converterInt)
+        console.log(num)
+
+        // repare que é uma função
+        // quanto passou so uma parametro para map ele pega so elemento.
+        const dobrar = (e)=>e*2
+        let num2 = ["1","2","3","4","5"].map(dobrar)
+        console.log(num2)
+
+
+    </script>
+</body>
+
+</html>

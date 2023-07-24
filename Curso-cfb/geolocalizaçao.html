@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="lat"></div>
+    <div id="long"></div>
+    <script>
+        const long = document.getElementById('long')
+        const lat = document.getElementById('lat')
+        
+        // ele precisa de um função de call back se ter tudo ok e se ter tudo errado
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(mostrarlocalizacao,Errolocalização)
+        }else{
+            console.log('não disponivel')
+        }
+
+        function mostrarlocalizacao(pos){
+           long.innerHTML="Longitude: "+ pos.coords.longitude
+           lat.innerHTML="Latitude: " + pos.coords.latitude
+        }
+        function Errolocalização(pos){
+            console.log('erro ')
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>

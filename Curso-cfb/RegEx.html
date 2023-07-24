@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // expressões regulares 
+        // são padrões de caracteres que é criada para utilizar em funções
+
+        let nome = new String('brunooooooo pinho campossssssss')
+
+
+        //como saber que uma metodo aceita regexp -- fica escrito na sintaxe
+        nome.search(/Pinho/i) // o P está com p maisculo / xx /i faz com que ele não use case sensitve . 
+
+        nome.match('o') // mostra onde ele encontrou primeiro o 
+        nome.match(/o/g) // mostra todos os O na string -- g é global
+        nome.match(/O/ig) // mostra todos os O na string -- g é global -- i ignora o case sensitive
+        nome.replace(/pinho/i,'Pinho')
+        nome.match(/[oh]/ig)// procura O e H . retorna um array
+
+        let email = "elias@elias.com.br"
+        nome.match(/[a-m]/ig)// tudo de a ate m
+        nome.match(/[a-m | 0 - 9]/ig)// tudo de a ate m(alfabetico) e tambem de 0 ate 9 ( | permite colocar outras faixas )
+
+        //meta carcteres
+        nome.match(/\d/ig) // \d retorna somente  o que é digito númerico 
+        nome.match(/\s/ig) // \s retorna somente  o que é espaços
+        nome.match(/\bP/ig) // \b retorna somente  o que é dword (alfa numericos) - P procurando o P
+
+        //quantificadores
+        nome.match(/o+|s+/ig) // + em casos em que o está repetido na mesama palavra
+        nome.match(/no*/ig) // 
+
+        let numeros = '1,10,100,1000'
+        numero.match(/10/)//* retorna 10,10,10
+        numero.match(/10+/)//* 10,100,1000
+        numero.match(/10*/)//* eretorna onde encontrar 10 e o 1 que é o primeiro digito 1,10,100,1000
+        numero.match(/10?*/)//* retorna onde encontrou 10 e nao o conjunto completo  1,10,10,10
+
+
+
+
+    </script>
+    
+</body>
+</html>

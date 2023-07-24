@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input{
+            font-size: large;
+            padding: 10px;
+            font-size: 2em;
+            
+
+        }
+        button{
+            font-size: large;
+            padding: 10px;
+            font-size: 2em
+
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>CFB Cursos</h1>
+        <input type="url" name="url" id="url" placeholder="https://cfbcursos.com.pt-br"pattern="https://" size="30" required>
+        <button id="btn_url">Ir</button>
+    </form>
+
+    <script>
+        const url=document.querySelector('#url')
+        const btn_url=document.querySelector('#btn_url')
+
+        //windo.location='Endereço da pagina'// vai para a pagina . faz um redirecionamento
+        //window.location.replace('endereço') -- substitui a pagina corrente por uma nova pagina . ele faz a remoção da url do historico
+        //window.location.assign('endereço') // não deleta a url do historico . faz 
+        //window.location.reload() --> recarrega a pagina
+        //window.history.back() - pagina anterior no historico
+        //window.history.forward() - proxima pagina que está historico
+        //window.history.length -- tamanho do historico
+        //window.history.go(1) -- navega para qual pagina quer ir conforme a quantidade de pagina clicada
+
+
+        btn_url.addEventListener('click',(evt)=>{
+            window.location=url.value
+
+
+
+        })
+
+    </script>
+    
+</body>
+</html>

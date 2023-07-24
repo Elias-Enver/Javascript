@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div style="width: 300px;height: 300px;">
+        <canvas id="grafico1" style="width: 100px;height: 100px;"></canvas>
+    </div>
+
+    <script>
+        //chart.js
+        //pode fazer instalação para dentro da maquina . npm install chart.js
+        //mas não precisa . pode utilizar cdn
+
+        //para utilizar grafico tem que ter um canvas no html
+        //pega o src . pus no head
+        //o codigo abaixo foi copiado . 
+        //porem criamos variaveis para manipular os dados
+        const ctx = document.getElementById('grafico1');
+        let titulos=['Brasil','EUA','Africa do Sul','Portugal']
+        let valores=[10,20,10,9]
+
+        new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: titulos,
+            datasets: [{
+            label: 'QTDE',
+            data: valores,
+            borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
+
+
+
+    </script>
+    
+</body>
+</html>

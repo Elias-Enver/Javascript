@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div></div>
+
+    <script>
+
+        const nome = Symbol('nome')
+        console.log(nome.description)
+        const numero = Symbol('nome')
+        const cor = Symbol('nome')
+        const time =Symbol()
+
+        // objeto literal
+        //colocando [] a propriedade ficou inplicita . tem que chamar tambem com [] - notação de acesso direto.
+
+        const jogador = {
+            [nome]:"j1",
+            numero:'10',
+            cor:'amarelo'
+        }
+        jogador[time]='cruzeiro'
+
+        for(p in jogador){
+            console.log(p)
+        }
+
+        console.log(jogador[nome])
+
+
+     
+
+    </script>
+    
+</body>
+</html>

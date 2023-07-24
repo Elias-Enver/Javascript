@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CFB Cursos</h1>
+    <H4>youtube.com.br/cfbcursos</H4>
+    <h4>www.cfbcursos.com.br</h4>
+    <button id="btn_alert">Alert</button>
+    <button id="btn_confirm">Confirm</button>
+    <button id="btn_prompt">Prompt</button>
+
+    <script>
+        const btn_alert=document.querySelector("#btn_alert")
+        const btn_confirm=document.querySelector("#btn_confirm")
+        const btn_prompt=document.querySelector("#btn_prompt")
+
+        btn_alert.addEventListener('click',(evt)=>{
+            alert('ola')
+
+        })
+        btn_confirm.addEventListener('click',(evt)=>{
+            //retorna true ou false
+            if(confirm('voce esta bem ?')){
+                console.log('botao ok presionado')
+            }else{
+                console.log('botao Cancelar presionado')
+            }
+            
+        })
+        btn_prompt.addEventListener('click',(evt)=>{
+            const nome = prompt('digite seu nome',"digite aqui") // prompt aceita texto padrão como segundo parametro
+                
+            if(nome==null){
+                    console.log('botao cancelar')
+                }else{
+                    console.log(`nome: ${nome}`)
+                }
+        })
+            
+        
+
+    </script>
+
+    
+</body>
+</html>

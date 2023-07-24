@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            border: none;
+            padding: 10px;
+            margin: auto;
+            box-sizing: border-box;
+        }
+        .olhos{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            width: 400px;
+            height: 200px;
+        }
+        .olho{
+            width: 200px;
+            height: 200px;
+            transform-origin: center center; // faz a rotação
+        }
+
+    </style>
+</head>
+<body>
+    <div class="olhos">
+        <img id="olho_e" class="olho" src="olho e.png" alt="imagem de olho">
+        <img id="olho_d" class="olho" src="olho e.png" alt="imagem de olho">
+    </div>
+
+    <script>
+        const olhos = [...document.getElementsByClassName('olho')]
+
+        let posx_mouse=0
+        let poxy_mouse=0
+
+        window.addEventListener('mousemove',(evt)=>{
+            posx_mouse=evt.clientX // posição x do maouse
+            poxy_mouse=evt.clientY // posição y do maouse
+            const rot =Math.atan2(poxy_mouse,posx_mouse) *180/Math.PI
+            //atan2 retorna o arco tangent de 2 coeficientes em radianos
+            olhos.forEach((o)=>{
+                o.style.transform="rotate("+rot+"deg)"
+            })
+        })
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

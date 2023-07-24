@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 10px;
+            border: none;
+            box-sizing: border-box;
+            font-size: large;
+        }
+        .campoform{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin-bottom: 10px;
+
+        }
+        .campoform input{
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .campoform button{
+            background-color: #888;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .res{
+            border: 3px solid black;
+            padding: 10px;
+            display: flex;
+            border-radius: 10px;
+        }
+        .pessoa{
+            border: 3px solid blue;
+            padding: 5px;
+           
+            border-radius: 5px;
+            width: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="campoform">
+        <label>nome</label>
+        <input type="text" name="f_nome" id="f_nome" value="">
+    </div>
+    <div class="campoform">
+        <label for="">Idade</label>
+        <input type="text" name="f_idade" id="f_idade">
+    </div>
+    <div class="campoform">
+        <button id="btn_add">Adicionar</button>
+    </div>
+    <div class="res"></div>
+
+
+
+    <script>
+        // Objetos Literais
+        // nesse forma de objeto , eles não são indentepentes , ou seja , ao se atribuir o valor a um membro de pessoa todos receberão o mesmo valor . 
+        //exemplo ( estou colocando aqui em cima para diferencia do exercicio , mas o certo era la em baixo )
+        //const p2 = Pessoa
+        //const p3 = Pessoa // estou instaciando p2 e p3 , no objeto pessoa
+        //p3.nome = elias // tanto p2 como p3 receberá o nome elias
+        // outras forma de instaciar . p3['nome'] = elias ou Pessoa.setnome('elias.')
+        const Pessoa={
+            nome:"",
+            idade:"",
+            getnome:function(){
+                return this.nome
+            },
+            getidade:function(){
+                return this.idade
+            },
+            setnome:function(nome){
+                this.nome = nome
+            },
+            setidade:function(idade){
+                this.idade=idade
+            }
+        }
+        let pessoas = []
+        let n_array=[]
+        const btn_add =document.querySelector('#btn_add')
+        const res = document.querySelector('.res')
+
+        const addPessoa=()=>{
+            res.innerHTML=""    
+            pessoas.map((p)=>{
+                const div =document.createElement('div')
+                div.setAttribute('class','pessoa')
+                div.innerHTML = `Nome: ${p.nome}<br> Idade: ${p.idade}`
+                res.appendChild(div)
+            })
+        }
+       
+
+        btn_add.addEventListener('click',(evt)=>{
+            const nome = document.querySelector('#f_nome')
+            const idade = document.querySelector('#f_idade')
+            const p = Pessoa
+            p.setnome(nome.value)
+            p.setidade(idade.value)
+            pessoas.push({...p})
+            n_array=[pessoas]
+            console.log(n_array)
+            nome.value=""
+            idade.value=""
+            nome.focus()
+            addPessoa()           
+        })
+
+
+    </script>
+    
+</body>
+</html>

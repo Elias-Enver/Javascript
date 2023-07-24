@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p_temperatura">0</p>
+    <p id="p_nivel">0</p>
+    <p id="p_pressão">0</p>
+    <button id="btn_texto">Fetch</button>
+    <script>
+        const p_temperatura = document.getElementById('p_temperatura')
+        const p_nivel = document.getElementById('p_nivel')
+        const p_pressão = document.getElementById('p_pressão')
+        const btn_texto = document.getElementById('btn_texto')
+        
+        const endpoint = "https://cfbcursos--eliasenver.repl.co/"
+
+        const obterDados=()=>{
+            fetch(endpoint)
+            .then(a=>a.json()) 
+            .then(dados=>{ 
+                console.log(dados) 
+                p_temperatura.innerHTML=dados.temperatura
+                p_nivel.innerHTML=dados.nivel
+                p_pressão.innerHTML=dados.pressao
+
+            })
+        }
+        
+        //let intervalo=setInterval(obterDados,3000)
+
+        // por padrão o api é consumo . por não passamos a informação . fetch(endpoint,method:'get') . get - pegar
+
+        // mas para enviar dados para o api , por exemplo para um banco de dados. preciso fazer um post
+        //fetch(endpoint,method:'post')
+
+        //criado objeto dados , esses dados serão enviado . mas obviamente .os valores poderiam ter sido obtidos de um formulario por exemplo
+        let dados={
+            nome:"Elias",
+            canal:"Cfbcursos",
+            curso:"JavaScript"
+        }
+        let cabeçalho={
+            method:'POST',
+            body:JSON.stringify(dados) // estou passando para o body
+        }
+
+        const gravardados=()=>{
+            const endpoint= "https://cfbcursos--eliasenver.repl.co/"
+            fetch(endpoint,cabeçalho)
+            .then(res=>res.json())
+            .then(ret=>{
+                console.log(ret)
+            })
+
+        }
+
+        btn_texto.addEventListener('click',(evt)=>{
+            gravardados()
+        })
+
+
+
+       
+        
+
+
+
+    </script>
+</body>
+</html>

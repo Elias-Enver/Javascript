@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        #form{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            border: 3px solid #888;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            width: 300px;
+        }
+        #campo{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        input{
+            background-color: #bbb;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button{
+            background-color: #bbb;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #listacontatos{
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
+            border: 3px solid #888;
+            border-radius: 5px;
+            margin: 5px;
+            width: calc(100%-10px);
+        }
+        .contato{
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="form">
+        <div id="campo">
+            <label >Nome</label>
+            <input type="text" name="f_nome" id="f_nome">
+        </div>
+        <div id="campo">
+            <label >Telefone</label>
+            <input type="text" name="f_telefone" id="f_telefone">
+
+        </div>
+        <div id="campo">
+            <label >Email</label>
+            <input type="text" name="f_email" id="f_email">
+        </div>
+        <div id="botoes">
+            <button id="btn_gravar">Gravar</button>
+        </div>
+    </div>
+    <div id="listacontatos"></div>
+    <script src="pratinafinal.js" type="module"></script>
+    
+</body>
+</html>

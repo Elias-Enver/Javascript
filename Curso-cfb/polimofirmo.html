@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        class Carro{
+            constructor(tipo,estagioTurbo){
+                this.turbo =new Turbo(estagioTurbo)
+                if(tipo==1){
+                    this.velmax=120
+                    this.nome='normal'
+                }else if(tipo==2){
+                    this.velmax=160
+                    this.nome='esportivo'
+                }if(tipo==3){
+                    this.velmax=200
+                    this.nome='Formula 1'
+                }
+                this.velmax+=this.turbo.pot
+            }
+            info(){
+                console.log(this.nome)
+                console.log(this.velmax)
+                console.log(this.turbo)
+                console.log('----------')
+            }
+        }
+
+        class Turbo{
+            constructor(el){
+                if(el==1){
+                    this.pot=50
+                }else if (el==2){
+                    this.pot=75
+                }else if (el==3){
+                    this.pot=100
+                }else if(el==0){
+                    this.pot=50
+                }
+            }
+        }
+
+        class CarroEspecial extends Carro{
+            constructor(estagioTurbo){
+                super(4,estagioTurbo)
+                this.tipoinfo=1
+                this.velmax =300 + this.turbo.pot
+                this.nome='Carro Especial'
+            }
+            info(){
+                //super.info() se colocar assim vai chamar a info da classe pai 
+                // voce pode redefinir o info para essa classe
+                // e tambem pode usar um if por exemplo 
+                if(this.tipoinfo==1){
+                    super.info()
+                }else{
+                    console.log(this.nome)
+                    console.log(this.velmax)
+                    console.log(this.turbo)
+                    console.log('----------')
+                }
+
+            }
+
+        }
+
+
+        const c1 =new Carro(1,2)
+        const c2 =new Carro(2,1)
+        const c3 = new CarroEspecial(1)
+        c1.info()
+        c2.info()
+        c3.info()
+    </script>
+    
+</body>
+</html>

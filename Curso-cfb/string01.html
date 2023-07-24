@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //funçoes para trabalhar com String
+        // a forma tradicional é colocar o ponto . "nome.METODOS" E USAR OS METODOS .
+        // na aula vai ser utilizada classe string mas poderia ser pela forma tradional tambem
+
+        //let nome = "bruno"
+
+        
+
+        let nome = new String('Bruno pinho campos')
+        // nome é um objeto da classe string ,
+        
+        // charat retorna a posição do caracter conforme o indice informado no ()
+        nome.charAt(0)
+
+        //charcodeat retorna o codigo asc do carecter que estiver na posição
+        nome.charCodeAt(0)
+
+        //metodo concat - concatenação
+        let canal = new String('cfbcursos')
+
+        //junta nome com canal, mas não muda conteudo original . 
+        nome.concat(canal)
+        //mas se fizer assim muda.
+        nome=nome.concat(canal)
+
+        //função index of - procura um conjunto de character na string e retorna a 1° posição
+        // retorno -1 é porque o caracter na o existe na string
+        nome.indexOf('b') //retorna 0 
+        nome.indexOf('no') //retorna 3 - pois começa no 3
+
+         //função Lasteindex of - procura um conjunto de character na string e retorna a ultima posição
+        // retorno -1 é porque o caracter na o existe na string
+        nome.lastIndexOf('o') //retorna 4
+        nome.lastIndexOf('o') // retorna 16
+
+        //localeCompare
+        // quanto se compara duas variaveis string ,se fazer assim nome == nome , retorna true . porem quanto se compara dois objetos strings . usa o locale.compare
+        let nome2 = new String('Bruno pinho campos')
+        //retorno com localecompare com 0 é que as duas são iguais
+        // retorno 1 e -1 é diferente . 1 é que a primeira é maior que a segunda  . -1 um é que a primeira é menor que a segunda
+        nome.localeCompare(nome2)
+
+        // replace . substitui um caracter ou setença por outro . no caso procurou b e mudou para p. só substitui o primeiro .
+        nome.replace('b','p')
+
+        //procura um caracter ou setença , e retorna a primeira posição.
+        nome.search('pinho')
+
+        //funçao slice . faz o corte na string primeiro parametro é inicio e segundo é ultimo . ele pega so o corte . so a parte de 6 a 11
+        nome.slice(6,11)
+
+        // função split .serve para fazer uma divisão . no caso onde tem " " espaço ele retorna um array com a string dividida . 
+        nome.split('')
+
+        // função da substring . ela faz semelhando ao slice porem ele exclui o utimo numero ai tem que colocar um a mais
+        nome.substring(0,5)
+        //substr indica a posiçao inicial e o tamanho 
+        nome.substr(6,5)
+        
+        nome.toUpperCase // converte tudo para maisculo
+        nome.toLowerCase // converte para minisculo . alias é so nessa linha . se tiver que modificar mesmo . tem que nome = nome.tolowercase .. tolocaleupper case é a mesma coisa 
+        //ou
+        let nome3 = new String(nome.toUpperCase)
+
+        // para pegar a string em si . fora do array . pega o valor 
+        nome.valueOf()
+
+        let num = 10
+        //converte quaquer tipo para string .
+        num.toString()
+
+        // metodos novos 
+        
+        //Startwith - a string começa com (carcarter ou setença) - retorna true ou false .
+        nome.startsWith('pinho')
+
+        //verifica se determinado caracter é o que esta no fim da string . retorna true ou false
+        nome.endsWith('campos')
+
+        //verifca se determiniado caracter ou conjunto tem no meio de uma string
+        nome.includes('nh')
+
+        //indica quantas vezer quer repetir a string 
+        nome.repeat(4)
+
+        //retorna o caracter apartir de do codigo asc.
+        String.fromCodePoint(66)
+
+
+
+
+
+        
+
+
+    </script>
+    
+</body>
+</html>

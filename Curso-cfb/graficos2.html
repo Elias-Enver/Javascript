@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+   
+    <div style="width: 300px;height: 300px;">
+        <canvas id="grafico1" style="width: 100px;height: 100px;"></canvas>
+    </div>
+    
+
+    <script>
+        //chart.js
+        //pode fazer instalação para dentro da maquina . npm install chart.js
+        //mas não precisa . pode utilizar cdn
+
+        //para utilizar grafico tem que ter um canvas no html
+        //pega o src . pus no head
+        //o codigo abaixo foi copiado . 
+        //porem criamos variaveis para manipular os dados
+        const ctx = document.getElementById('grafico1');
+        let titulos=['Qualidade','Disponibilidade','Perfomance']
+        let valores=[0,0,0]
+
+        let grafico2=new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: titulos,
+                datasets: [{
+                label: '%',
+                data: valores,
+                borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            }
+        });
+
+        const obterdados=()=>{
+            const endpoint = "https://cfbcursos--eliasenver.repl.co/"
+            fetch(endpoint)
+            .then(res=>res.json())
+            .then(res=>{
+            valores[0]=res.disponilibidade
+            valores[1]=res.quaidadade
+            valores[2]=res.performance
+            grafico2.update()
+
+            //     //valores =(res.disponibilidade,res.qualidade,res.perfomance)
+
+
+            })
+            // //.catch(erro=>{
+            //  console.log("Erro" + erro)
+            //})
+
+        }
+        let intervalo=setInterval(obterdados,4000)
+
+        
+    </script>
+    
+</body>
+</html>

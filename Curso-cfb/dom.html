@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <Div id="c1">Html</Div>
+    <Div id="c2">Css</Div>
+    <Div id="c3">Java</Div>
+    <Div id="c4">Python</Div>
+    <Div id="c5">node js</Div>
+    <Div id="c6">VBA</Div>
+
+
+</body>
+
+<script>
+    const dc1 = document.getElementById('c1')
+    const dc2 = document.getElementById('c2')
+    const dc3 = document.getElementById('c3')
+    const dc4 = document.getElementById('c4')
+    const dc5 = document.getElementById('c5')
+    const dc6 = document.getElementById('c6')
+
+    const arrayElementos =[dc1,dc2,dc3,dc4,dc5,dc6]
+    
+    //for(d of arrayElementos)
+        //d.innerHTML='CFB Cursos'
+    
+    // modificar com estrutura map
+    arrayElementos.map((e)=>{
+        e.innerHTML='cfccursos'
+        console.log(e)
+    })
+
+    console.log(arrayElementos)
+
+    // na tag o retorno é uma coleção 
+    const colecaoHtml =document.getElementsByTagName('div')
+    console.log(colecaoHtml)
+    // para converter em array
+    const colecaoHtmll =[...document.getElementsByTagName('div')]
+    console.log(colecaoHtmll)
+
+
+
+</script>
+</html>

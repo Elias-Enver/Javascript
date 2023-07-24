@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="caixa1">
+        <Div id="c1">Html</Div>
+        <Div id="c2">Css</Div>
+        <Div id="c3">Java</Div>
+        <Div id="c4">Python</Div>
+        <Div id="c5">node js</Div>
+        <Div id="c6">VBA</Div>
+    </div>
+
+
+</body>
+
+<script>
+    const caixa1 = document.querySelector('#caixa1')
+    // para criar novos elementos
+    // precisa indicar qual elemento vai criar 
+    const novoElemento = document.createElement('div')
+
+    //indica onde criar 
+    caixa1.appendChild(novoElemento)
+
+    // para dar novme
+    novoElemento.innerHTML ="React Native"
+
+    // para tratar os atributes
+
+    novoElemento.setAttribute('id','c7')
+    novoElemento.setAttribute('class','curso c1')
+
+    
+
+
+
+</script>
+</html>

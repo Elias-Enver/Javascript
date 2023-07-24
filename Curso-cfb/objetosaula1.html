@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Carro{
+            canal='Cfb cursos'
+            constructor(pnome,ptipo){
+                this.nome = pnome;
+                if(ptipo==1){
+                    this.tipo="ESPORTIVO"
+                    this.velmax=300
+                }else if(ptipo==2){
+                    this.tipo='Utilitario'
+                    this.velmax=120
+                }else if(ptipo==3){
+                    this.tipo='Passeio'
+                    this.velmax =180
+                }else{
+                    this.tipo="Militar"
+                    this.velmax =250
+                }
+                
+            }
+            inf(){
+                console.log(`Nome ${this.nome}`)
+                console.log(`Tipo ${this.tipo}`)
+                console.log(`Velocidade ${this.velmax}`)
+                console.log(this.canal)
+                console.log('-----------------')
+            }
+            getNome(){
+                return this.nome
+
+            }
+            gettipo(){
+                return this.tipo
+            }
+            getvelmax(){
+                return this.velmax
+            }
+            getinfo(){
+                return[this.nome,this.tipo,this.velmax]
+            }
+            setNome(nome){
+                //para definir/modificar valor da propriedade
+                this.nome=nome
+
+            }
+        }
+
+        let c1= new Carro("Rapidão",3)
+        c1.setNome('Normal')
+        console.log(c1.nome)
+        console.log(c1.tipo)
+        console.log(c1.velmax)
+        c1.inf()
+        c1.getNome()
+        console.log(c1.getNome())
+    </script>
+    
+</body>
+</html>

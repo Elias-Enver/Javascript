@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+       
+    </style>
+</head>
+<body>
+
+    <div id="objetos" class="objetos"></div>
+
+    <script>
+        // é uma forma de definir um tipo personalizado
+        // pode trabalhar como classes , adicionando propriedade e classes
+        // porem não estanciamos é mais para utilizaçaõ direta
+        
+        const objetos = document.getElementById('objetos')
+        // colocando chaves , cria um objeto 
+        let computador = {
+            cpu:"i9",
+            ram:"64gb",
+            hd:"2tb",
+            info:function(){
+                console.log(`cpu: ${this.cpu}`)
+                console.log(`ram: ${this.ram}`)
+                console.log(`HD: ${this.hd}`)
+                
+            }
+        }
+        //para adicionar novas propriedades
+        computador["monitor"]="22pol"
+        computador.placavide='RTX'
+
+        //objetos.innerHTML+=computador.cpu
+        objetos.innerHTML=computador.cpu+"-"+computador.ram+"-"+computador.hd
+        objetos.innerHTML+="<br>"
+        // pode usar json
+        objetos.innerHTML+=JSON.stringify(computador)
+
+        // criando um array de objetos
+        const computadores = [
+        {
+            cpu:"i9",
+            ram:"64gb",
+            hd:"2tb"
+        },
+        {
+            cpu:"i5",
+            ram:"32gb",
+            hd:"2tb"
+        },{
+            cpu:"i7",
+            ram:"100gb",
+            hd:"2tb"
+        }]
+
+        objetos.innerHTML+="<br>"
+        
+        //objetos.innerHTML+=JSON.stringify(computadores)
+        objetos.innerHTML+="<br>"
+        
+       computador.info()
+
+       computadores.forEach((c)=>{
+        const div=document.createElement('div')
+        div.innerHTML = c.cpu+"<br>"+c.ram+"<br>"+c.hd
+        objetos.appendChild(div)
+       })
+
+
+        
+
+
+    </script>
+    
+</body>
+</html>

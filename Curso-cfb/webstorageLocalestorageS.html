@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="f_texto" id="f_texto">
+    <br>
+    <p id="p_texto"></p>
+    <button id="btn_texto">WebStorage</button>
+    <script>
+        //Webtoarage , local e session storage
+        // são opção de armazenamento local . posso armazenar no browser local ou em sessão.
+
+        // podemos ver no tools no menu aplicativo
+        // session storage - quanto fecha o browser as informaçoes são perdidas 
+        //local storage // retem as informaçoes 
+
+        const f_texto = document.querySelector("#f_texto")
+        const p_texto = document.querySelector("#p_texto")
+        const btn_texto = document.querySelector("#btn_texto")
+
+        btn_texto.addEventListener('click',(evt)=>{
+
+        })
+
+        let num = 10
+        window.localStorage.setItem('num',num) // setitem define uma ( chave , valor ) 
+        window.localStorage.setItem('num',40) // pode mudar o valor da chave
+
+        // para ler o valor da chava , obter
+        alert(localStorage.getItem('num'))//retorna string
+
+        // para liberar as chaves 
+        localStorage.clear()
+
+        //key , ele espera o indice da chave e retorna o nome
+        localStorage.key(0)
+        //aqui ele retorna o nome
+        localStorage.getItem(localStorage.key(0))
+
+        //tamanho do local storage
+        localStorage.length
+
+        // de forma analoga tem session storage . a forma de trabalho é identica . porem ao fechar o browser as informações sao perdidas.
+
+    </script>
+    
+</body>
+</html>

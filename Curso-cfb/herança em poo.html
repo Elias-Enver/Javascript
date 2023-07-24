@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            box-sizing: border-box;
+            font-size: large;
+        }
+        .carros{
+            display: flex;
+            width: 100%;
+            border: 3px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            
+        }
+        .campoform{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin-bottom: 10px;
+
+        }
+        .campoform input{
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .campoform button{
+            background-color: #888;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .res{
+            border: 3px solid black;
+            padding: 10px;
+            display: flex;
+            border-radius: 10px;
+        }
+        .pessoa{
+            border: 3px solid blue;
+            padding: 5px;
+           
+            border-radius: 5px;
+            width: 200px;
+        }
+        .carros{
+            display: flex;
+            width: 100%;
+            border: 3px solid black;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .carro{
+            border: 3px #088 solid;
+            background-color: #8cf;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div id="criarcarro" class="criarcarro">
+        <div class="campoform">
+            <label >Nome:</label>
+            <input type="text" name="f_nome" id="f_nome">
+        </div>
+        <div class="campoform">
+            <label >Portas</label>
+            <input type="text" name="f_portas" id="f_portas" value="0">
+        </div>
+        <div class="campoform">
+            <label>Blindagem</label>
+            <input type="number" name="f_blindagem" id="f_blindagem" disabled value="0">
+        </div>
+        <div class="campoform">
+            <label>Munição</label>
+            <input type="number" name="f_municao" id="f_municao" disabled value="0">
+        </div>
+        <div class="campoform">
+            <label>Tipo</label>
+            <div class="radio">
+                <input type="radio" name="f_tipo" id="f_tipoMilitar" value="M">Militar
+                <input type="radio" name="f_tipo" id="f_tipoNormal" value="N" checked>Normal
+            </div>
+            <div class="campoform">
+                <button id="btn_addcarro">Adicionar</button>
+            </div>
+            <div id="carros" class="carros">
+                
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const f_tipoMilitar = document.querySelector('#f_tipoMilitar')
+        const f_tipoNormal = document.querySelector('#f_tipoNormal')
+        const f_blindagem=document.querySelector('#f_blindagem')
+        const f_municao=document.querySelector('#f_municao')
+        const carros = document.querySelector('#carros')
+        const btn_addcarro = document.querySelector('#btn_addcarro')
+        const f_nome = document.querySelector('#f_nome')
+        const f_portas = document.querySelector('#f_portas')
+
+        let array_carros = []
+
+
+        const remover_carro=(removido)=>{
+            array_carros = array_carros.filter((el)=>{
+                return el.nome!=removido
+            })
+
+        }
+
+        f_tipoMilitar.addEventListener('click',(evt)=>{
+            f_nome.value=""
+            f_portas.value=0
+            f_blindagem.value = 0
+            f_municao.value = 0
+            f_blindagem.removeAttribute('disabled')
+            f_municao.removeAttribute('disabled')
+        
+        })
+        f_tipoNormal.addEventListener('click',(evt)=>{
+            f_nome.value=""
+            f_portas.value=0
+            f_blindagem.value = 0
+            f_municao.value = 0
+            f_blindagem.setAttribute('disabled','disabled')
+            f_municao.setAttribute('disabled','disabled')
+            
+        })
+
+        const gere_veiculos =()=>{
+            carros.innerHTML=""
+            array_carros.map((e)=>{
+                const div=document.createElement('div')
+                const btn=document.createElement('button')
+                btn.innerHTML='Remover'
+                btn.addEventListener('click',(evt)=>{
+                    const removido = evt.target.parentNode.dataset.nome
+                    remover_carro(removido)
+                    gere_veiculos()
+                })
+                div.setAttribute('class','carro')
+                div.setAttribute('data-nome',e.nome)
+                div.innerHTML=`Nome: ${e.nome} <br >Portas: ${e.portas}  <br>`
+                div.innerHTML+=`Blindagem: ${e.blindagem} <br >Municao: ${e.municao}`
+                div.appendChild(btn)
+                carros.appendChild(div)
+            })
+        }
+        btn_addcarro.addEventListener('click',()=>{
+            if(f_tipoNormal.checked){
+                const c = new Carro(f_nome.value,f_portas.value)
+                array_carros.push(c)
+            }else{
+                const c = new Militar(f_nome.value,f_portas.value,f_blindagem.value,f_municao.value)
+                array_carros.push(c)
+            }
+            gere_veiculos()
+        })
+
+
+        class Carro{ // classe pai 
+            constructor(nome,portas){
+                this.nome=nome
+                this.portas=portas
+                this.ligado=false
+                this.vel=0
+                this.cor = undefined
+            }
+            ligar(){
+                this.ligado=true
+            }
+            desligar=function(){
+                this.ligado=false
+            }
+            setcor(cor){
+                this.cor=cor
+            }
+        }
+
+        class Militar extends Carro{
+            constructor(nome,portas,blindagem,municao){
+                super(nome,portas)
+                this.blindagem=blindagem
+                this.municao=municao
+                this.setcor('Verde')
+            }
+            atirar=function(){
+                if(this.municao>0){
+                    this.municao --
+                }
+            }
+        }
+
+        const c1 = new Carro('normal',2)
+        c1.ligar()
+        c1.setcor('Preta')
+        console.log(`Nome: ${c1.nome}`)
+        console.log(`Portas: ${c1.portas}`)
+        console.log(`Ligado: ${(c1.ligado?"Sim":"Não")}`)
+        console.log(`Cor: ${c1.cor}`)
+        console.log(`Velocidade: ${c1.vel}`)
+        console.log('--------------------')
+
+        const c2 = new Militar('rapido',3,100,50)
+        console.log(`Nome: ${c2.nome}`)
+        console.log(`Portas: ${c2.portas}`)
+        console.log(`Ligado: ${(c2.ligado?"Sim":"Não")}`)
+        console.log(`Cor: ${c2.cor}`)
+        console.log(`Velocidade: ${c2.vel}`)
+        console.log(`Munição: ${c2.municao}`)
+        console.log(`Blindagem: ${c2.blindagem}`)
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>

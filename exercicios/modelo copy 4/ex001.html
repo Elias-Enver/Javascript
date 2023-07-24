@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vamos Contar </title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header> Vamos contar</header>
+    <section>
+        <div id="dados">
+            <p><label for="inicio">Inicio: </label> <input type="number" name="inicio" id="inicio" required></p>
+            <p><label for="fim">Fim: </label> <input type="number" name="fim" id="fim" required></p>
+            <p><label for="passo">Passo: </label> <input type="number" name="passo" id="passo"></p>
+        </div>
+        <input type="button" value="Contar" onclick= "contar01()">
+        <div id="res"> Preparando Contagem...
+        </div>
+
+
+    </section>
+    <footer>
+        <p>curso em video</p>
+    </footer>
+    <script>
+        function contar01(){
+            var inicio = document.getElementById('inicio')
+            var fim = document.getElementById('fim')
+            var passo = document.getElementById('passo')
+            var res = document.getElementById('res')
+            
+            if (inicio.value == "" || fim.value =="" ){
+                res.innerHTML = "Impossivel Contar"
+            }else {
+                res.innerHTML = "Contando... <br> "
+                let i = Number(inicio.value)
+                let f = Number(fim.value)
+                let p = Number(passo.value)
+                if (p <= 0 || p ==""){
+                    window.alert('Passo errado, sera considerado 1')
+                    p = 1
+                }
+                if (i < f){
+                     for (let c = i;c<=f;c+=p){
+                        res.innerHTML += ` ${c} \u{1f449}`
+                     }
+                    }else{
+                        for(let c= i;c>=f;c-=p)
+                        res.innerHTML += ` ${c} \u{1f449}`
+                    }
+                }
+                res.innerHTML+=`\u{1f3c1}`
+            }
+            
+            
+
+    </script>
+</body>
+</html>

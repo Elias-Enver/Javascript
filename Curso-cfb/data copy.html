@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #div_relogio{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            background-color: #444;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: large;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div_relogio">00:00:00</div>
+
+
+    <script>
+
+        const div_relogio = document.getElementById('div_relogio')
+
+        const relogio=()=>{
+            const data = new Date
+            let hora =data.getHours()
+            hora = hora<10?"0"+hora:hora
+
+            let minuto =data.getMinutes()
+            minuto = minuto<10?"0"+minuto:minuto
+
+            let segundo =data.getSeconds()
+            segundo = segundo<10?"0"+segundo:segundo
+
+            const hora_completa = hora+":"+minuto+":"+segundo
+            
+
+            div_relogio.innerHTML=hora_completa
+
+
+
+
+
+        }
+        // set interval , ele chama uma função a cada tempo determiniado
+
+        const intervalo = setInterval(relogio,1000)
+
+
+
+    </script>
+    
+</body>
+</html>

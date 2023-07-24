@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     
+        .curso{
+            display: flex;
+            justify-content: center;
+            width: 200px;
+            border: 4px solid #888;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px 0px;;
+            cursor: pointer;
+            margin: auto;
+        }
+        .curso:hover{
+            border-color: #f00;
+        }
+        .c1{
+            background-color: #ccc;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .c2{
+            background-color: #444;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .destaque{
+            background-color: #b02020 !important;
+            color: #c87676 !important;
+            border-color: #f00 !important;
+        }
+    </style>
+</head>
+<body>
+    <Div class="curso c1" id="c1">Html</Div>
+    <Div class="curso c1" id="c2">Css</Div>
+    <Div class="curso c1" id="c3">Java</Div>
+    <Div class="curso c1" id="c4">Python</Div>
+    <Div class="curso c1" id="c5">node js</Div>
+    <Div class="curso c1" id="c6">VBA</Div>
+    <Div class="curso c2" id="c1">Html</Div>
+    <Div class="curso c2" id="c2">Css</Div>
+    <Div class="curso c2" id="c3">Java</Div>
+    <Div class="curso c2" id="c4">Python</Div>
+    <Div class="curso c2" id="c5">node js</Div>
+    <Div class="curso c2" id="c6">VBA</Div>
+
+    <script>
+        // retorna html colection
+        // com spreed retorna como array
+        const cursoTodos =[...document.getElementsByClassName('curso')]
+        const cursoc1 =[...document.getElementsByClassName('c1')]
+        const cursoc2 =[...document.getElementsByClassName('c1')]
+        const cursoespecial=[...document.getElementsByClassName('curso')][0]
+        console.log(cursoTodos)
+        console.log(cursoc1)
+        console.log(cursoc2)
+        console.log(cursoespecial)
+
+        // olhe no css ele - la tem uma chave !important
+        
+        cursoc1.map((e)=>{
+            e.classList.add('destaque')
+
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: none;
+            box-sizing: border-box;
+            font-size: large;
+        }
+        .caixa{
+            border: 5px solid black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            padding: 5px;
+        }
+        .verde{
+            border-color: rgb(20,120,23) !important;
+            background-color: rgb(220,255,225) !important;
+        }
+        .vermelho{
+            border-color: rgb(120,20,20) !important;
+            background-color: rgb(255,225,220) !important;
+        }
+        .azul{
+            border-color: rgb(20,60,120) !important;
+            background-color: rgb(255,220,220) !important;
+        }
+        button{
+            width: 150px;
+            height: 40px;
+            background-color: #025;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+        input{
+            padding: 10px;
+            border-radius: 5px;
+            width: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="caixa_array" class="caixa verde">
+        <p>Array:</p>
+        <p id="array"></p>
+    </div>
+    <div id="caixa_reduzir" class="caixa azul">
+        <button id="btnreduzir">Reduzir</button>
+    </div>
+    <div id="caixa_resultado" class="caixa vermelho">
+        <p>Resultado:</p>
+        <p id="resultado"></p>
+    </div>
+    <script>
+
+        const p_array=document.querySelector('#array')
+        const btnreduzir=document.querySelector('#btnreduzir')
+        const resultado=document.querySelector('#resultado')
+
+        const elementos_array = [1,2,3,4,5]
+        let ant = []
+        let atu =[]
+        let dobr =[]
+        p_array.innerHTML ="["+ elementos_array+"]"
+        
+        btnreduzir.addEventListener('click',(evt)=>{
+            dobr.push(elementos_array[0]*2)
+            resultado.innerHTML= elementos_array.reduce((anterior,atual,indice)=>{
+            ant.push(anterior)
+            atu.push(atual)
+            dobr.push(atual*2)
+            return atual * anterior
+
+           })
+           resultado.innerHTML += `<br> valor anterior :${ant}`
+           resultado.innerHTML += `<br>Valor atual: ${atu}`
+           resultado.innerHTML += `<br>Valor dobro: ${dobr}`
+        })
+
+        
+
+        
+
+       
+
+    </script>
+    
+</body>
+</html>

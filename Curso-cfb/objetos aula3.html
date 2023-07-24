@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 10px;
+            border: none;
+            box-sizing: border-box;
+            font-size: large;
+        }
+        .campoform{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin-bottom: 10px;
+
+        }
+        .campoform input{
+            background-color: #eee;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .campoform button{
+            background-color: #888;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .res{
+            border: 3px solid black;
+            padding: 10px;
+            display: flex;
+            border-radius: 10px;
+        }
+        .pessoa{
+            border: 3px solid blue;
+            padding: 5px;
+           
+            border-radius: 5px;
+            width: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="campoform">
+        <label>nome</label>
+        <input type="text" name="f_nome" id="f_nome" value="">
+    </div>
+    <div class="campoform">
+        <label for="">Idade</label>
+        <input type="text" name="f_idade" id="f_idade">
+    </div>
+    <div class="campoform">
+        <button id="btn_add">Adicionar</button>
+    </div>
+    <div class="res"></div>
+
+
+
+    <script>
+        // nessa aula foi trocado class por function , ou seja , criar classe atraves de uma função 
+        // trocou class por function 
+        // retira o consttructor e poe seus parametros no nome da função
+        // nos metódos chama com this. e coloca função anonima em cada m
+        function Pessoa(pnome,pidade){
+            this.nome=pnome,
+            this.idade=pidade,
+            this.inf=function(){
+                console.log(`Nome ${this.nome}`)
+                console.log(`Idade ${this.idade}`)
+               ('-----------------')
+            }
+            this.getNome=function(){
+                return this.nome
+
+            }
+            this.getidade=function(){
+                return this.idade
+            }
+            this.setNome=function(nome){
+                //para definir/modificar valor da propriedade
+                this.nome=nome
+            }
+            this.setNome=function(idade){
+                //para definir/modificar valor da propriedade
+                this.idade=idade
+            }
+        }
+        let pessoas = []
+        const btn_add =document.querySelector('#btn_add')
+        const res = document.querySelector('.res')
+
+        const addPessoa=()=>{
+            res.innerHTML=""
+            pessoas.map((p)=>{
+                const div =document.createElement('div')
+                div.setAttribute('class','pessoa')
+                div.innerHTML = `Nome: ${p.getNome()}<br> Idade: ${p.getidade()}`
+                res.appendChild(div)
+            })
+        }
+       
+
+        btn_add.addEventListener('click',(evt)=>{
+            const nome = document.querySelector('#f_nome')
+            const idade = document.querySelector('#f_idade')
+            const p = new Pessoa(nome.value,idade.value) 
+            pessoas.push(p)
+            nome.value=""
+            idade.value=""
+            nome.focus()
+            addPessoa()
+            console.log(pessoas)
+        })
+
+
+    </script>
+    
+</body>
+</html>

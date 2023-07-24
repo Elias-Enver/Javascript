@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="teste"></div>
+    <script>
+        var teste = document.getElementById('teste')
+        function aluno(nome,nota){
+            this.nome = nome // this.nome é como se fosse uma variavel declarada para função aluno que recebe o valor do parametro nome.
+            this.nota = nota // com isso faz distinção entre nota variavel e nota parametro
+
+            teste.innerHTML+=(nome)
+            teste.innerHTML+= '<br>'
+            teste.innerHTML+=(nota)
+            console.log(nome)
+            console.log(nota)
+
+        }
+
+        aluno('elias','10')
+    </script>
+</body>
+</html>

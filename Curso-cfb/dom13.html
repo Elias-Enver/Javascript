@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 100%;
+            gap: 10px;
+            
+
+        }
+        #caixa1{
+            display: flex;
+            background-color: rgba(128, 128, 128, 0.148);
+            width: 300px;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 4px solid black;
+            margin: 5px ;
+            padding: 10px;
+            
+           
+            
+            
+        }
+        .curso{
+            display: flex;
+            padding: 5px;
+            background-color: rgba(219, 16, 16, 0.518);
+            border: 1px black solid;
+            border-radius: 5px;
+            width: 200px;
+            margin-bottom: 3px;
+            justify-content: space-around;
+            align-items: center;            
+            
+        }
+        #botoes{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        button{
+            background-color: rgb(3, 3, 63);
+            color: white;
+            padding: 20px;
+            width: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .selecionado{
+            background-color: #800 !important;
+            color: #fcc !important;
+            border-color: #f00 !important;
+
+        }
+        .lixeira{
+            width: 25px;
+            cursor: pointer;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="caixa1">
+        <!-- <Div id="c1">Html</Div>
+        <Div id="c2">Css</Div>
+        <Div id="c3">Java</Div>
+        <Div id="c4">Python</Div>
+        <Div id="c5">node js</Div>
+        <Div id="c6">VBA</Div> -->
+        
+    </div>
+
+
+</body>
+
+<script>
+    const caixa1 = document.querySelector('#caixa1')
+
+
+    // ---------------------------
+    //continuação da aula
+    // criando elementos dinamicamente
+    // remover ao clicar no curso
+    //
+
+    const cursos =['html','css','java','nodejs','vba','react native']
+
+    cursos.map((el,indice)=>{
+        const novoElemento = document.createElement('div')
+        novoElemento.setAttribute('id',`c${indice}`)
+        novoElemento.setAttribute('class','curso')
+        novoElemento.innerHTML =el
+
+        const btn= document.createElement("img")
+        btn.setAttribute("src","lix.png")
+        btn.setAttribute('class','lixeira')
+        btn.addEventListener('click',(evt)=>{
+            caixa1.removeChild(evt.target.parentNode)
+        })  
+
+
+        novoElemento.appendChild(btn)       
+        caixa1.appendChild(novoElemento)
+        
+    })
+    
+
+
+
+</script>
+</html>

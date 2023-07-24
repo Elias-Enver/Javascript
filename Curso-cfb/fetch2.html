@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p_temperatura">0</p>
+    <p id="p_nivel">0</p>
+    <p id="p_pressão">0</p>
+    <button id="btn_texto">Fetch</button>
+    <script>
+        const p_temperatura = document.getElementById('p_temperatura')
+        const p_nivel = document.getElementById('p_nivel')
+        const p_pressão = document.getElementById('p_pressão')
+        
+        const endpoint = "https://cfbcursos--eliasenver.repl.co/"
+
+        const obterDados=()=>{
+            fetch(endpoint)
+            .then(a=>a.json()) 
+            .then(dados=>{ 
+                console.log(dados) 
+                p_temperatura.innerHTML=dados.temperatura
+                p_nivel.innerHTML=dados.nivel
+                p_pressão.innerHTML=dados.pressao
+
+            })
+        }
+        
+        let intervalo=setInterval(obterDados,3000)
+       
+        
+
+
+
+    </script>
+</body>
+</html>

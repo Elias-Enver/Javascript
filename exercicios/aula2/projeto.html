@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hora do Dia</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #616161;
+
+        }
+        h1{
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+            color: white;
+        }
+        section{
+            background-color: white;
+            width: 500px;
+            height: 250px;
+            margin: auto;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 5px 5px 10px black;
+        }
+        div#txthora{
+            text-align: center;
+            font-size: 1.6em;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+
+        }
+        div#img{
+            background-color: black ;
+            background-image: url(dia1.jpg) ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 300px;
+            border-radius: 50%;
+            height: 200px;
+            margin: auto;
+            margin-top: 10px;
+        }
+        footer{
+            text-align: center;
+            font-size: 1.4em;
+            color: white;
+
+        }
+
+
+    </style>
+</head>
+<body onload="carregar()">
+    <header>
+        <h1>hora do dia</h1>
+    </header>
+    <section>
+        <div id="txthora">texto</div>
+        <div id="img"></div>
+
+    </section>
+    <footer> Curso em Video</footer>
+
+    <script>
+        function carregar(){
+            var txt = document.getElementById('txthora')
+            var hoje = new Date()
+            var hora = hoje.getHours()
+            var imagem = document.getElementById('img')
+            txt.innerHTML= `Agora são ${hora} horas!`
+            if (hora >= 0 && hora < 12){
+                //bomdia
+                document.body.style.background= "#e2cd"
+            }else if (hora >=12 && hora <18){
+            //boa tarde
+            document.body.style.background= "#e9cd"
+            } else {
+                document.body.style.background= "#e2cd09"
+            }   
+
+        }
+        
+
+
+    </script>
+</body>
+</html>

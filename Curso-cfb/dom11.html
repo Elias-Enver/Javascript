@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+        }
+        main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            width: 100%;
+            gap: 10px;
+            
+
+        }
+        .caixa{
+            display: flex;
+            background-color: rgba(128, 128, 128, 0.148);
+            width: 300px;
+            height: 400px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 4px solid black;
+            margin: 5px ;
+            padding: 10px;
+            
+            
+        }
+        .c1{
+            padding: 5px;
+            background-color: rgba(128, 128, 128, 0.518);
+            border: 1px black solid;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 3px;
+            cursor: pointer;
+        }
+        #botoes{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        button{
+            background-color: rgb(3, 3, 63);
+            color: white;
+            padding: 20px;
+            width: 150px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .selecionado{
+            background-color: #800 !important;
+            color: #fcc !important;
+            border-color: #f00 !important;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <div id="caixa1" class="caixa">
+            <div id="c1" class="curso c1">
+                <div id="c1_1">
+                    <div id="c1_2">
+                        HTML
+                    </div>
+                </div> 
+            <div id="c2" class="curso c1">css</div>
+            <div id="c3" class="curso c1">JavaScript</div>
+            <div id="c4" class="curso c1">PHP</div>
+            <div id="c5" class="curso c1">React</div>
+            <div id="c6" class="curso c1">MySQL</div>
+
+        </div>
+    </main>
+
+    <script>
+        // propriedade não precisa de parenteses(caixa azul)
+        // metodos precisam de parenteses (caixa ciano)
+       // Entendo as relações no Dom .
+       // elemento pai é parent 
+       // elementos filhos são child
+       // firt child é o primeiro filho (primiro da lista)
+       // last child é o utimo filho (ultimo da lista)
+       // irmão na mesmo elementos é siblings ( ai tem o first e last siblings)
+
+       const caixa1=document.querySelector('#caixa1')
+       const btn = document.querySelectorAll('.curso')
+
+       console.log(caixa1.children[0])
+
+       // para pegar o ultimo elemento
+       
+       console.log(caixa1.children[caixa1.children.length-1])
+
+       // do jeito mais facil é 
+
+       console.log(caixa1.lastElementChild)
+
+       // o nó raiz é o 
+       console.log(document.getRootNode())
+
+       // owner document tambem mostra a raiz
+       console.log(document.ownerDocument)
+
+       // o metodo haschildnodes() - retorna true se o elemento possui filhos
+       // has retorna o texto por isso sempre que tiver que texto vai ser true
+
+       console.log(caixa1.hasChildNodes())
+
+       // para ver se tem filh com if 
+
+       if ((btn)[0].children.length > 0){
+        console.log('possui filhos')
+       }else{
+        console.log('não possui filhos')
+       }
+
+       // para verificar com condição ternaria
+
+       console.log(caixa1.children.length >0 ?"possui filhos":'Não possui filhos')
+
+
+       // para modificar os elmentos
+      //console.log(caixa1.firstElementChild.innerHTML = 'teste')
+
+      // para modifificar elementos conforme a posição
+       
+      //console.log(caixa1.children[2].innerHTML = 'teste')
+
+      // para achar o pai 
+      const c1_2 = document.querySelector('#c1_2')
+      //ambos aqui retornam o parente anterior
+      console.log(c1_2.parentElement)
+      console.log(c1_2.parentNode)
+      //para saber o avo.
+      console.log(c1_2.parentNode.parentNode)
+      // para pegar um filho especifico do avo por exemplo
+      console.log(c1_2.parentNode.parentNode.children[3])
+
+       
+
+
+
+
+    </script>
+</body>
+</html>

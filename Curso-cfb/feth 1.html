@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p_texto"></p>
+    <button id="btn_texto">Fetch</button>
+    <script>
+        //Criado api em node js no site Replit
+        //para consumo de api cria variavel
+        const endpoint = "https://cfbcursos--eliasenver.repl.co/"
+        //fetch trabalha com dois parametros . o primeiro é a url e o segundo parametros de configuração .Fetch -retorna uma promisse
+
+        fetch(endpoint)
+        .then(a=>a.json()) // tras o retorno dos dados em modo texto
+        .then(dados=>{ // dados recebe o retorno ja em forma de texto do primeiro then
+            console.log(dados) // receber o que foi gerado pela api 
+
+        })
+
+
+
+        // fetch(endpoint)
+        // .then(a=>a.text()) // tras o retorno dos dados em modo texto
+        // .then(dados=>{ // dados recebe o retorno ja em forma de texto do primeiro then
+        //     console.log(dados) // receber o que foi gerado pela api 
+
+        // })
+
+
+    </script>
+</body>
+</html>

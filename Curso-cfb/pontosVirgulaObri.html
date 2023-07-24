@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //https://www.ecma-international.org/ 
+
+        // em for ou qualquer loop caso ele não tenha bloco de comando o ponto e virgula é obrigatorio. 
+        let i = null
+        for(i=0;i<10;i++);
+        console.log(i) // aqui so da o resultado final de i
+        
+        // onde eu tenho mais de uma instruçao na mesma linha
+        let a = null ; a =10 
+
+        // sempre que a proxima começar com [ ou (
+        let canal = "CFB Cursos";
+        ['j','a','v','a'].forEach(a => console.log(a))
+
+
+        let n1=[1,2]
+        let n2=[3,4];
+        [n1,n2].map(v=>console.log(v))
+
+        //outro exemplo
+        let nn=null;
+        (nn=10)
+
+        //
+        let numeros=[10,20,30];
+        [n1,n2,n3]=numeros
+
+        // se for objeto tem que colocar let 
+
+        let num ={
+            n5:10,
+            n6:20,
+            n7:30
+        }
+        let {n5,n6,n7}=num
+
+
+        //
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

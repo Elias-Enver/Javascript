@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        button{
+            background-color: #eee;
+            padding: 10px 50px;
+            cursor: pointer;
+            border-radius: 10px;
+
+        }
+        button:hover{
+            outline: 3px solid red;
+        }
+        table{
+            width: 300px;
+            font: 17px Calibri;
+        }
+        table,th,td{
+            border: solid 1px #ddd;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="tabela">
+        <table>
+            <tr>
+                <th>Equipamento</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td>Mouse</td>
+                <td>01</td>
+                <td>R$ 35,00</td>
+            </tr>
+            <tr>
+                <td>Teclado</td>
+                <td>01</td>
+                <td>R$ 85,00</td>
+            </tr>
+            <tr>
+                <td>Monitor</td>
+                <td>01</td>
+                <td>R$ 650,00</td>
+            </tr>
+        </table>
+        <button id="btn_imprimir">Imprimir</button>
+
+
+    </div>
+
+    <script>
+        //window.print() imprime a tela
+        const btn_imprimir = document.getElementById('btn_imprimir')
+        btn_imprimir.addEventListener('click',(evt)=>{
+            const conteudo=document.getElementById('tabela').innerHTML
+            
+            // let estilo = "<style>"
+            // estilo+="table{width:100%;font:25px Calibri;}"
+            // estilo+="table,th,td{border:solid 2px #888;border-collapse:collapse;padding:4px 8px;text-align:center}"
+            // estilo+="</style>"
+
+            //const win = window.open("","","height=700,width=700")
+            //window.open. (1°parametro url , 2° onde vai abir são opcionais , e confirgurações , retorna uma nova janela.)
+
+            //write serve para escrever
+
+            // win.document.write("<html><head>")
+            // win.document.write('<title>Cfb Cursos</title>')
+            // win.document.write(estilo)
+            // win.document.write("</head>")
+            // win.document.write("<body>")
+            // win.document.write(conteudo)
+            // win.document.write('</body>')
+            // win.document.write("</html>")
+
+            // win.print()
+            // win.close()//fecha a janela
+        })
+    </script>
+
+    
+</body>
+</html>

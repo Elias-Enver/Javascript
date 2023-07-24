@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let colocacao = 1
+        switch(colocacao){
+            case 1:
+                console.log('Primeiro')
+                break
+            case 2:
+                console.log('Segundo')
+                break
+            case 4: case 5 : case 6:
+                console.log('Premio de participação')
+                break
+            default:
+                console.log('Não subiu no podio')
+                break
+        }
+        let num =[10,20,30,40,50]
+        for (n in num){
+            console.log(n)      // imprime as posiçoes de n 
+            console.log(num[n]) // imprime os elementos de num na posição n (n funciona como indice)
+        }
+
+        for (n of num){
+            console.log(n)      // imprime os elementos diretamente .
+        }
+
+        // trabahando com coleção de elementos
+        const objs = document.getElementsByTagName('div')
+        for (o of objs){
+            console.log(o) // imprime os elementos da coleção de div . 
+            console.log(o.innerHTML='curso') // muda os nomes das divs para Curso
+        }
+        for (o in objs){
+            console.log(o) // imprime as posiçoes .
+        }
+
+        let n =5
+        let f =1
+        while(n >= 1){
+            f*=n
+            n--
+
+        }
+
+        do{
+            f*=n
+            n--
+        }while(n >=1)
+
+        // break ; para , ele encerra a execução do loop  e sai para fora
+        // continue ; ele cancela a iteração corrente e pula para proxima iteração
+
+        let t =0
+        let max =1000
+        let pares = 0
+
+        while(n<max){
+            console.log('TESTE' + t)
+            if (n>10){
+                break // vai encerrar esse while se o n for maior que 10
+            }
+            n ++
+        }
+
+        // continue
+        for(let i = t;i<max;i++){
+            console.log('TESTE' + i)
+            if (i%2 ==0){ // se o número for par 
+                pares ++ // incrementa a variavel pares
+            }
+        }
+
+        for(let i = t;i<max;i++){
+            
+            if (i%2 !=0){ // se o número for impar
+                continue  // ou seja, se for impar ele nao vai contar .              
+            }
+            pares ++ // incrementa a variavel pares
+        }
+
+
+    </script>
+</body>
+</html>

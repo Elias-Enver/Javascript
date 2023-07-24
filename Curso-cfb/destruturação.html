@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //basicamente é uma expresão que permite extrair dados de um objeto ou um array e associar esses dados a variaveis distintas.
+
+        let a,b,c,d
+
+        [a,b,c,d]=[10,20,30,40]
+
+        // da forma acima associa os valoes as variaveis . pode ser qualquer tipo de dado.
+
+        //objeto 
+        // coloca tudo dentro de parenteses. e as propridades do objeto no mesmo nome que a variavel
+      (  {a,b,c,d}={a:"verde",b:"azul",c:'amarelo',d:"marrrom"})
+
+      
+      //destruturação em um array
+      let numeros=[10,20,30,40]
+      let[e,f,g,h]=numeros // ou o proprio array
+
+      //pode associar valores padroes 
+
+      let i,j,k,m
+      [i,j=0,k=0,m=0] =[10] // o i recebe 10 os demais terão os valor padrão que foi inoformado , no caso 0
+
+      let aa=10;
+      let bb=20;
+      [aa,bb]==[bb,aa] // mudando valor da variavel com destrutuação o aa vai receber valor de bb nesse caso e vice versa.
+
+
+        // destruturação em função
+      let numeros3=()=>{
+        return[10,20,30,40]
+      }
+      let [aaaa,bbb,ccc,ddd]=numeros()
+
+
+     
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var book = {
+            topico : 'java',
+            fat : true
+        }
+        console.log =book
+
+        let num = []
+        console.log = num
+        //acrescentar dados
+        num[0] = -5 // na posição 0 colocar 5
+        num.push(7) // colocar na ultima posição o numero 7
+        num.push(-9,0,-4)
+        num.length // tamanho do array
+        num.sort // coloca em ordem
+        
+        var valores = [0,9,8,7,5,3]
+        // usando array em uma for
+        for(let pos = 0 ;pos<valores.length;pos++){
+            console.log=(valores[pos])
+        }
+
+        // outro tipo de for mais simples
+
+        for (let pos in num){
+            console.log=(num[pos])
+        }
+        //pesquisar a endereço dentro de um valor
+        num.indexOf(7) // acha o enderço de valor 7 , resultado -1 é porque não encontrou
+    </script>
+</body>
+</html>

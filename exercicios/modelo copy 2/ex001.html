@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body >
+    <header> Tabuada</header>
+    <section>
+        <div >
+            <label for="num">Número:</label><input type="number" name="num" id="num">
+            <input type="button" value="Gerar Tabuada" onclick="tabuada()"><br>
+        </div>
+        <div id="res">
+            tabuada: <br>
+            <select name="tabuada" id="seltab" size="10">
+                <option value=>"Digite um numero acima"</option>
+            </select>
+        </div>
+
+
+    </section>
+    <footer>
+        <p>curso em video</p>
+    </footer>
+    <script >
+        function tabuada(){
+            var numero = document.getElementById('num')
+            var res=document.getElementById('res')
+            var tab = document.getElementById('seltab')
+            num = Number(numero.value)
+            tab.innerHTML=''
+            if (num==0 ||num ==''){
+                alert('Digite um numero')
+            } else {
+                for(let c = 1; c <=10;c+=1){
+                    let item = document.createElement('option')
+                    item.text =`${c} x ${num} = ${c*num}`
+                    tab.appendChild(item)
+                }
+            }
+        }    
+    </script>
+</body>
+</html>

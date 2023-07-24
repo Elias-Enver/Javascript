@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(82, 89, 173);
+            color: white;
+            font: normal 18pt arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando Estudos <strong>DOM</strong></h1>
+    <p>Aqui vai o resultado</p>
+    <p>lomsgad dladfla lddl</p>
+    <div id="msg">
+        Clique em Mim
+    </div>
+    <script>
+        window.document.write(window.document.URL)
+        var corpo = window.document.body
+        var p1 = window.document.getElementsByTagName('p')[0]
+       // var d = window.document.getElementById('msg')
+       // d.style.background = "green"
+       // d.innerHTML = 'Estou aguardando'
+       // window.document.getElementById('msg').innerHTML = 'testando'
+       var d = window.document.querySelector('div#msg')
+       d.style.background = 'green'
+
+        
+
+    </script>
+</body>
+</html>
