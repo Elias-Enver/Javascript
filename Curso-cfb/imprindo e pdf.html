@@ -67,28 +67,29 @@
         const btn_imprimir = document.getElementById('btn_imprimir')
         btn_imprimir.addEventListener('click',(evt)=>{
             const conteudo=document.getElementById('tabela').innerHTML
+            console.log(conteudo)
             
-            // let estilo = "<style>"
-            // estilo+="table{width:100%;font:25px Calibri;}"
-            // estilo+="table,th,td{border:solid 2px #888;border-collapse:collapse;padding:4px 8px;text-align:center}"
-            // estilo+="</style>"
+            let estilo = "<style>";
+            estilo+="table{width:100%;font:25px Calibri;}";
+            estilo+="table,th,td{border:solid 2px #888;border-collapse:collapse;";
+            estilo+="padding:4px 8px;text-align:center}";
+            estilo+="</style>";
 
-            //const win = window.open("","","height=700,width=700")
-            //window.open. (1°parametro url , 2° onde vai abir são opcionais , e confirgurações , retorna uma nova janela.)
+            
+        //    window.open. (1°parametro url , 2° onde vai abir são opcionais , e confirgurações , retorna uma nova janela.)
+           // write serve para escrever
+            const win = window.open(" "," ","height=700,width=700")
+            win.document.write("<html><head>");
+            win.document.write('<title>Cfb Cursos</title>');
+            win.document.write(estilo);
+            win.document.write("</head>");
+            win.document.write("<body>");
+            win.document.write(conteudo);
+            win.document.write('<body></html>');
+            
 
-            //write serve para escrever
-
-            // win.document.write("<html><head>")
-            // win.document.write('<title>Cfb Cursos</title>')
-            // win.document.write(estilo)
-            // win.document.write("</head>")
-            // win.document.write("<body>")
-            // win.document.write(conteudo)
-            // win.document.write('</body>')
-            // win.document.write("</html>")
-
-            // win.print()
-            // win.close()//fecha a janela
+            win.print()
+            
         })
     </script>
 

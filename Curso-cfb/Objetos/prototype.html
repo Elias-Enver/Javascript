@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //outra forma de criar class com function
+        const Nave = function(energia){
+            this.energia=energia
+            this.disparos=100
+        }
+
+    
+        // para adicionar novas propriedades ao objeto depois que a classe foi instaciada
+        Nave.prototype.vidas=3
+
+        // para criar metodos ao objeto depois que a classe tiver sido instaciada
+        Nave.prototype.disparar=function(){
+            if(this.disparos>0){
+                this.disparos --
+            }
+        }
+
+
+        const n1 = new Nave(100)
+
+
+
+    </script>
+    
+</body>
+</html>

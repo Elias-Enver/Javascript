@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+   
+        input{
+            width: 50vh;
+            height: 40px;
+        }
+        div{
+            display: flex;
+        }
+        button{
+            padding: 40px;
+        }
+        p{
+            border: 2px solid black;
+            width: 50vh;
+            padding: 20px;
+            font-size: 2em;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="number" name="numerador" id="numerador">
+    <br>
+    <input type="number" name="denominador" id="denominador">
+    <p id="resultado"></p>
+    <div>
+        <button id="adicao">Adição</button>
+        <button id="mult">Multiplicação</button>
+        <button id="sub">Subtração</button>
+        <button id="div">Divisão</button>
+        
+    </div>
+    <script>
+        const adicao = document.querySelector('#adicao')
+        const mult = document.querySelector('#mult')
+        const sub = document.querySelector('#sub')
+        const div = document.querySelector('#div')
+        const numerador = document.getElementById('numerador')
+        const denominador = document.querySelector('#denominador')
+        const resultado = document.querySelector('#resultado')
+
+       
+        
+ 
+
+        const ope =[
+            (val)=>{
+                let res = 0
+                for(v of val){
+                    res+=v
+                }
+                return res
+            }
+        ]
+        
+        adicao.addEventListener('click',(evt)=>{
+            const valores =[Number(numerador.value),Number(denominador.value)]
+            
+           resultado.innerHTML=ope[0](valores)
+           console.log(valores)
+         
+        
+        })
+
+        let valores=[numerador.value,9]
+
+    </script>
+</body>
+</html>

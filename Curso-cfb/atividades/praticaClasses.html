@@ -51,7 +51,7 @@
             position: absolute;
             overflow: hidden;
         }
-        input,#num_objetos{
+        input[type='number'],#num_objetos{
             border: 1px solid black;
             padding: 5px;
             border-radius: 5px;
@@ -91,8 +91,8 @@
         const btn_add = document.getElementById('btn_add')
         const btn_remover = document.getElementById('btn_remover')
         
-        let larguraPalco=palco.offsetWidth // largura do palco
-        let alturaPalco=palco.offsetWidth // altura do palco
+        let larguraPalco=palco.offsetWidth// largura do palco
+        let alturaPalco=palco.offsetHeight// altura do palco
         let bolas=[]
         let numBola=0
 
@@ -184,8 +184,10 @@
         }
            // evento que toda vez que a tela for remendicionada ela atualiza o tamanho
            window.addEventListener('resize',(evt)=>{
-            let larguraPalco=palco.offsetWidth // largura do palco
-            let alturaPalco=palco.offsetWidth // altura do palco
+       
+            let larguraPalco=palco.offsetWidth //largura do palco
+            let alturaPalco=palco.offsetHeight // altura do palco
+            console.log(larguraPalco)
             
         })
 
