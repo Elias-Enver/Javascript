@@ -61,6 +61,7 @@
 
         const info=(el)=>{
             let domrect_q=el.getBoundingClientRect()
+            console.log(domrect_q)
             posx.innerHTML =`posx:${domrect_q.x}`//linha x
             posy.innerHTML =`posy:${domrect_q.y}`//linha y
             largura.innerHTML =`Largura:${domrect_q.width}`
@@ -71,7 +72,7 @@
       
         q1.addEventListener('click',(evt)=>{
             info(evt.target)
-
+            
         })
         q2.addEventListener('click',(evt)=>{
             info(evt.target)

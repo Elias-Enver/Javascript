@@ -9,6 +9,10 @@ btn_gravar.addEventListener('click',()=>{
         telefone:document.getElementById('f_telefone').value,
         email:document.getElementById('f_email').value,
     }
-    c.addContato(cont,listacontatos)
+    listacontatos.innerHTML=""
+    c.addContato(cont)
+    
+    
+    
 })
 

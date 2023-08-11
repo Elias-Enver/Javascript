@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>EBAC Banking</h1>
+        <h2>Depositos</h2>
+        <form id="form">
+            <input type="text" id="nome" required placeholder="Nome completo do beneficiário">
+            <p class="erro">O nome precisa ser completo</p>
+            <input type="number" id="conta"required placeholder="Numero da Conta">
+            <input type="number" id="valor"required placeholder="Valor">
+            <textarea id="descricao"placeholder="Descrição(opcional)"></textarea>
+            <button id="btnDeposito"type="submit">Depositar</button>
+            
+        </form>
+        <p class="mensagem">
+            
+        </p>
+    </div>
+    <script>
+         //let nome=document.getElementById('nome')
+         //nome.value='elias'
+
+         //forma de validar se foi preenchido nome copleto
+
+         //if(nome.value.split(' ').length > 3){
+            //split quebra a string e retorna um array, depois e so validar o tamanho da array
+         //}
+
+         //para desabilitar o botal 
+         //btnDeposito = document.getElementById('btnDeposito')
+         //btnDeposito.disabled = true
+
+         function validanome(nome){
+            const nomearray=nome.split(' ')
+            return nomearray.length>=2
+         }
+         const erro=document.querySelector('.erro')
+        let formEvalido=false
+        const nomebeneficiario=document.getElementById('nome')
+         const form = document.getElementById('form')
+         form.addEventListener('submit',function(e){
+           
+            e.preventDefault()//cancela o evento padrão do submit
+            
+            const conta=document.getElementById('conta')
+            const valor=document.getElementById('valor')
+            const mensagem=`Montante de <b>${valor.value}</b> depositado para o cliente: <b>${nome.value}</b> - conta: <b>${conta.value}</b>`
+            formEvalido=(validanome(nomebeneficiario.value))
+            
+            if(formEvalido){
+                const mensagemvalor=document.querySelector('.mensagem')
+                mensagemvalor.innerHTML = mensagem
+                mensagemvalor.style.display = 'block'
+               
+                nomebeneficiario.value = ""
+                conta.value=""
+                valor.value=""
+                erro.style.display='none'
+                nomebeneficiario.style.border='1px solid black'
+            }else{
+                
+                nomebeneficiario.style.border='1px solid red'
+                erro.style.display='block'
+            }
+
+            nomebeneficiario.addEventListener('keyup',function(e){
+                formEvalido=(validanome(e.target.value))
+                if(!formEvalido){
+                    //nomebeneficiario.style.border='1px solid red'ou
+                    nomebeneficiario.classList.add('erro')
+                    erro.style.display='block'
+                }else{
+                    nomebeneficiario.classList.remove('erro')
+                    erro.style.display='none'
+
+                }
+
+            })
+
+         })
+        
+    </script>
+
+
+    
+</body>
+</html>
